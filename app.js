@@ -21,9 +21,9 @@ const itemSchema= {
 
 const Item = mongoose.model('Item', itemSchema);
 
-const item = new Item({ name: 'EatFood' });
-const item1 = new Item({ name: 'wolk in the park' });
-const item2 = new Item({ name: 'smile on the morning' });
+const item = new Item({ name: 'Welcome to your todolist!' });
+const item1 = new Item({ name: 'hit the + button to add item' });
+const item2 = new Item({ name: '<-- hit this to delete item' });
 allitems=[item, item1,item2];
 
 const listSchema={
@@ -111,10 +111,6 @@ app.post("/delete" , function (req,res) {
 app.get("/about", function(req, res){
   res.render("about");
 });
-
-// app.listen(3000, function() {
-//   console.log("Server started on port 3000");
-// });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
