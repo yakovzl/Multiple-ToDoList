@@ -102,7 +102,7 @@ app.post("/delete" , function (req,res) {
   else{
     List.findOneAndUpdate({name:req.body.name},{$pull:{items:{_id:req.body.checkbox}}},function(err, listFound){
           if (!err) {
-            
+
             res.redirect("/"+req.body.name);
           }
           });
@@ -114,5 +114,5 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
