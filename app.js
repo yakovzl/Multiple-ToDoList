@@ -95,7 +95,7 @@ app.post("/delete" , function (req,res) {
   if(req.body.name===date.getDate()){
     console.log(req.body.checkbox);
     console.log("hay");
-    Item.findOneAndDelete(req.body.checkbox ,function (err) {
+    Item.findByIdAndRemove(req.body.checkbox ,function (err) {
       if(!err){
         res.redirect("/");
       }
