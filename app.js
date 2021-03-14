@@ -41,12 +41,14 @@ app.get("/", function(req, res) {
     Item.insertMany(allitems,function (err) {
         console.log("Succesfully added!");
     });
-      res.redirect("/");
+     res.redirect("/");
+
   }
 else{
   Item.find({},function(err,items){
   res.render("list", {listTitle: day, newListItems: items});
   });
+
 }
 
 });
@@ -91,7 +93,9 @@ app.post("/delete" , function (req,res) {
   const a= req.body.name;
   console.log(a);
   if(req.body.name===date.getDate()){
-    Item.findOneAndRemove( req.body.checkbox ,function (err) {
+    console.log(req.body.checkbox);
+    console.log("hay");
+    Item.findOneAndRemove(req.body.checkbox ,function (err) {
       if(!err){
         res.redirect("/");
       }
