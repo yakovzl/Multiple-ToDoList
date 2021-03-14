@@ -93,7 +93,6 @@ app.post("/delete" , function (req,res) {
   const a= req.body.name;
   console.log(a);
   if(req.body.name===date.getDate()){
-    console.log(req.body.checkbox);
     Item.findByIdAndRemove(req.body.checkbox ,function (err) {
       if(!err){
         res.redirect("/");
@@ -103,7 +102,7 @@ app.post("/delete" , function (req,res) {
   else{
     List.findOneAndUpdate({name:req.body.name},{$pull:{items:{_id:req.body.checkbox}}},function(err, listFound){
           if (!err) {
-            console.log("adedd secec");
+            
             res.redirect("/"+req.body.name);
           }
           });
