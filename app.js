@@ -1,5 +1,3 @@
-//jshint esversion:6
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -14,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-mongoose.connect('mongodb+srv://admin-jik:jiik1996@cluster0.ekc7g.mongodb.net/todolistDB', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect('mongodb://127.0.0.1:27017/todolist', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 const itemSchema= {
   name:String
